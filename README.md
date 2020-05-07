@@ -28,4 +28,12 @@ Run the `execute.sh` script to start up the nodeJS server. Alternatively, run `e
 
 The multiplication output can be seen by accessing `http://localhost:8080`
 
-Run `load_test.sh` to initiate a sustained load test on the server.
+Run `load_test.sh` on another console window to initiate a sustained load test on the server.
+
+## Sample Output
+
+On a browser that is accessing the server, the browser will receive the following output
+`Result:6370`
+
+On the CLI window running the script, the output will be shown in the following format
+`Inputs received. Result is: 6370`
