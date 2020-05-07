@@ -10,7 +10,8 @@ A sample nodeJS project that uses a C++ addon which inteprets and runs an embedd
 - npm
 
 Development prerequisites:
-- node-gyp
+- Cmake
+- Cmake-js
 
 ## 
 
