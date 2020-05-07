@@ -12,7 +12,7 @@ int runPy(int x, int y, std::string filepath) {
     PyObject* pArgs, * pValue;
 
     std::string path;
-    int idx = filepath.find_last_of('/');
+    size_t idx = filepath.find_last_of('/');
     if (idx == 0 || -1) {   //only specifies file
         path = DEFAULT_DIRECTORY;
     } else {
@@ -21,7 +21,7 @@ int runPy(int x, int y, std::string filepath) {
             path = path.substr(1);
         }
     }
-    int idx_extension = filepath.find_last_of(".");
+    size_t idx_extension = filepath.find_last_of(".");
     std::string file = filepath.substr(idx+1, idx_extension - idx - 1);
 
     const char* c_file = file.c_str();

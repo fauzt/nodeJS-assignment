@@ -9,7 +9,7 @@
         "./src/index.cpp"
       ],
       "libraries": ["-lpython3"],
-      "library_dirs": ["<!(python -c \"from sysconfig import get_paths as gp; print((gp()['data']) + '/libs')\")"],
+      "library_dirs": ["<!(python -c \"from sysconfig import get_paths as gp; print((gp()['data']) + '\\**')\")"],
       "include_dirs": [
         "<!@(node -p \"require('node-addon-api').include\")",
         "<!(python -c \"from sysconfig import get_paths as gp; print(gp()['include'])\")"
