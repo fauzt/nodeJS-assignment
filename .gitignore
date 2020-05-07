@@ -1,0 +1,7 @@
+node_modules
+*.log
+logs
+build
+metric.txt
+__pycache__
+.vscode
