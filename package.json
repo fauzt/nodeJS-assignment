@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "appmetrics": "^5.1.1",
     "bindings": "^1.5.0",
     "node-addon-api": "^3.0.0"
   },
