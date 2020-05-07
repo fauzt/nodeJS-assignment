@@ -33,7 +33,9 @@ Run `load_test.sh` on another console window to initiate a sustained load test o
 ## Sample Output
 
 On a browser that is accessing the server, the browser will receive the following output
+
 `Result:6370`
 
 On the CLI window running the script, the output will be shown in the following format
+
 `Inputs received. Result is: 6370`
