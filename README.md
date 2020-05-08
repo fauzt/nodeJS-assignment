@@ -9,15 +9,12 @@ A sample nodeJS project that uses a C++ addon which inteprets and runs an embedd
 - nodeJS
 - npm
 
-Development prerequisites:
-- Cmake
-- Cmake-js
-
-## 
-
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
+- [Cmake](https://cmake.org/download/)
+- [Cmake-js](https://www.npmjs.com/package/cmake-js)
 
 ## Installation
+
+Cmake is needed to build the addon. After installation of Cmake, the environment variable for Cmake should be set `cmake = installedfolder\CMake\bin\cmake.exe`. This is to ensure cmake-js can find and access it.
 
 Run the installation script, `build.sh`, while in the root directory. The module will be built and installed with the necessary dependencies.
 
