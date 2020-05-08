@@ -3,7 +3,8 @@
 #include <iostream>
 
 int runPy(int x, int y, std::string filepath) {
-    char ATTRIBUTE[] = "multiply";
+    std::string attr = "multiply";
+    const char* ATTRIBUTE = attr.c_str();
     std::string DEFAULT_DIRECTORY = "py/";
     int numberOfArguments = 2;
     int result = 0;
