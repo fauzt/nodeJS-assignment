@@ -10,15 +10,14 @@ A sample nodeJS project that uses a C++ addon which inteprets and runs an embedd
 - npm
 
 - [Cmake](https://cmake.org/download/)
-- [Cmake-js](https://www.npmjs.com/package/cmake-js)
 
 ## Installation
 
 Cmake is needed to build the addon. After installation of Cmake, the environment variable for Cmake should be set
 
-`cmake = installedfolder\CMake\bin\cmake.exe`
-
 `PATH = installedfolder\CMake\bin`
+
+`cmake = installedfolder\CMake\bin\cmake.exe`
 
 This is to ensure cmake-js can find and access it.
 
