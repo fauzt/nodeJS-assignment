@@ -18,6 +18,8 @@ Cmake is needed to build the addon. After installation of Cmake, the environment
 
 `cmake = installedfolder\CMake\bin\cmake.exe`
 
+`PATH = installedfolder\CMake\bin`
+
 This is to ensure cmake-js can find and access it.
 
 Run the installation script, `build.sh`, while in the root directory. The module will be built and installed with the necessary dependencies.
