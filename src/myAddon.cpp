@@ -3,10 +3,10 @@
 #include <iostream>
 
 int runPy(int x, int y, std::string filepath) {
-    char* ATTRIBUTE = "multiply";
+    char ATTRIBUTE[] = "multiply";
     std::string DEFAULT_DIRECTORY = "py/";
     int numberOfArguments = 2;
-    int result;
+    int result = 0;
 
     PyObject* pName, *pModule, * pFunc;
     PyObject* pArgs, * pValue;

@@ -3,7 +3,7 @@ cmake_policy(SET CMP0042 NEW)
 set (CMAKE_CXX_STANDARD 11)
 
 project (myaddon)
-find_package(Python COMPONENTS Interpreter Development)
+find_package(Python 3 REQUIRED COMPONENTS Interpreter Development)
 include_directories(${CMAKE_JS_INC} ${Python_INCLUDE_DIRS})
 file(GLOB SOURCE_FILES "./src/myAddon.cpp" "./src/myAddon.h" "./src/index.cpp")
 add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${CMAKE_JS_SRC})
