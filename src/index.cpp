@@ -13,10 +13,26 @@ Napi::Number pyWrapped(const Napi::CallbackInfo& info) {
     return returnValue; 
 }
 
+void initPy(const Napi::CallbackInfo& info) {
+    initPyInterpreter();
+}
+
+void finalisePy(const Napi::CallbackInfo& info) {
+    finalisePyInterpreter();
+}
+
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
     exports.Set(
         Napi::String::New(env,"pyWrapped"),
         Napi::Function::New(env, pyWrapped)
+    );
+    exports.Set(
+        Napi::String::New(env,"initPy"),
+        Napi::Function::New(env, initPy)
+    );
+    exports.Set(
+        Napi::String::New(env,"finalisePy"),
+        Napi::Function::New(env, finalisePy)
     );
 
     return exports;

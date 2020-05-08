@@ -2,6 +2,17 @@
 #include <string>
 #include <iostream>
 
+void initPyInterpreter() {
+    Py_Initialize();
+    PyEval_InitThreads();
+}
+
+void finalisePyInterpreter() {
+    Py_Finalize();
+}
+
+static int gil_init = 0; 
+
 int runPy(int x, int y, std::string filepath) {
     std::string attr = "multiply";
     const char* ATTRIBUTE = attr.c_str();
@@ -28,7 +39,17 @@ int runPy(int x, int y, std::string filepath) {
     const char* c_file = file.c_str();
     const char* c_path = path.c_str();
 
-    Py_Initialize();
+    
+    if (!gil_init) {
+        gil_init = 1;
+        Py_InitializeEx(0);
+        PyEval_InitThreads();
+        PyEval_SaveThread();
+    }
+
+    PyGILState_STATE gstate;
+    gstate = PyGILState_Ensure();
+
     PyObject* sys = PyImport_ImportModule("sys");
     PyObject* syspath = PyObject_GetAttrString(sys, "path");
     PyList_Append(syspath, PyUnicode_FromString(c_path));
@@ -91,7 +112,7 @@ int runPy(int x, int y, std::string filepath) {
         fprintf(stderr, "Failed to load \"%s\"\n", c_file);
     }
 
-    Py_Finalize();
+    PyGILState_Release(gstate);
 
     return result;
 }
