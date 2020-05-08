@@ -5,6 +5,7 @@ A sample nodeJS project that uses a C++ addon which inteprets and runs an embedd
 
 # Prerequisites
 
+- C++ compiler
 - Python 3.x
 - nodeJS
 - npm
