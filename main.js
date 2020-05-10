@@ -17,6 +17,7 @@ function startServer() {
     console.log(filepath);
 
     var inputs = q.query;
+    console.log(inputs);
     var x = Number(inputs.x);
     var y = Number(inputs.y);
     console.log(y);
