@@ -1,14 +1,17 @@
-//var appmetrics = require('appmetrics');
-//var monitoring = appmetrics.monitor();
 const fs = require('fs');
 const http = require('http');
+<<<<<<< HEAD
 const {Worker, isMainThread, parentPort} = require('worker_threads');
+=======
+const url = require('url');
+>>>>>>> origin/master
 var myAddon = require('bindings')('myaddon');
 
-const filepath = "py/mult.py";
+const FILEPATH = "py/mult.py";
 const log_file = "metric.txt"
 const port_number = 8080;
 
+<<<<<<< HEAD
 //var cpu_usage;
 //monitoring.on('cpu', function (cpu) {
 //  cpu_usage = cpu.process;
@@ -23,28 +26,42 @@ const workerPool = [  // Start a pool of two workers
 ];
 const waiting = [];
 
+=======
+>>>>>>> origin/master
 console.log("Program started")
 
 
 function startServer() {
   const server = http.createServer((req, res) => {
     var result;
+    var q = url.parse(req.url, true);
+    var filepath = q.pathname;
+    console.log(filepath);
 
     let body = '';
     req.on('data', chunk => body += chunk);
     req.on('end', () => {
-      var x = Math.floor((Math.random() * 100) + 1);  //get randomised inputs
-      var y = Math.floor((Math.random() * 100) + 1);
+      var inputs = q.query;
+      var x = Number(inputs.x);
+      var y = Number(inputs.y);
+      if (isNaN(x) || isNaN(y)) {
+        res.writeHead(400);
+        res.end("Invalid inputs. Please input whole integers into the query url.")
+      }
+      if (filepath == "/") {
+        res.writeHead(404);
+        res.end("Invalid filepath.")
+      }
 
       res.writeHead(200);
-    if (workerPool.length > 0) {
-      cpu_before = process.cpuUsage();
-      time_before = process.uptime();
-      handleRequests(res, [x, y, filepath], workerPool.shift());
-    }
-    else {
-      waiting.push((worker) => handleRequests(res, [x, y, filepath], worker));
-    }
+      if (workerPool.length > 0) {
+        cpu_before = process.cpuUsage();
+        time_before = process.uptime();
+        handleRequests(res, [x, y, filepath], workerPool.shift());
+      }
+      else {
+        waiting.push((worker) => handleRequests(res, [x, y, filepath], worker));
+      }
 
     });
 
