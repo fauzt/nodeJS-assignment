@@ -1,21 +1,12 @@
 const fs = require('fs');
 const http = require('http');
-<<<<<<< HEAD
 const {Worker, isMainThread, parentPort} = require('worker_threads');
-=======
 const url = require('url');
->>>>>>> origin/master
 var myAddon = require('bindings')('myaddon');
 
 const FILEPATH = "py/mult.py";
 const log_file = "metric.txt"
 const port_number = 8080;
-
-<<<<<<< HEAD
-//var cpu_usage;
-//monitoring.on('cpu', function (cpu) {
-//  cpu_usage = cpu.process;
-//});
 
 var cpu_before;
 var time_before;
@@ -26,8 +17,6 @@ const workerPool = [  // Start a pool of two workers
 ];
 const waiting = [];
 
-=======
->>>>>>> origin/master
 console.log("Program started")
 
 
