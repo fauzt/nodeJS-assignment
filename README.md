@@ -1,6 +1,6 @@
 ﻿# About
 
-A sample nodeJS project that uses a C++ addon which inteprets and runs an embedded Python module. The main.js file, on every HTTP request, will generate two random numbers and pass them to the Python module through the addon. The python module will multiply the random numbers and return the results for main.js to return as a response.
+A sample nodeJS project that uses a C++ addon which inteprets and runs an embedded Python module. The main.js file will take in two integers from the query part of the URL and pass them to the Python module through the addon. The python module will multiply the numbers and return the results for main.js to return as a response.
 
 
 # Prerequisites
