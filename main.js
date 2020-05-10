@@ -67,7 +67,7 @@ function handleRequests(res, inputData, worker) {
     var cpu_usage = process.cpuUsage(cpu_before);
     
     var txt = String("CPU Usage: " + cpu_usage.system + "(system) " + cpu_usage.user + "(user), Memory(bytes): " + mem + " Elapsed time(s): " + elapsed_time
-              + " Python file path: " + filepath + "\n");
+              + " Python file path: " + inputData[2] + "\n");
 
     fs.appendFile(log_file, txt, (err) => {
     if (err)
