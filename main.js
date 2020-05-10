@@ -1,27 +1,33 @@
-//var appmetrics = require('appmetrics');
-//var monitoring = appmetrics.monitor();
 const fs = require('fs');
 const http = require('http');
+const url = require('url');
 var myAddon = require('bindings')('myaddon');
 
-const filepath = "py/mult.py";
+const FILEPATH = "py/mult.py";
 const log_file = "metric.txt"
 const port_number = 8080;
-
-//var cpu_usage;
-//monitoring.on('cpu', function (cpu) {
-//  cpu_usage = cpu.process;
-//});
 
 console.log("Program started")
 
 function startServer() {
   const server = http.createServer((req, res) => {
     var result;
+    var q = url.parse(req.url, true);
+    var filepath = q.pathname;
+    console.log(filepath);
 
-
-    var x = Math.floor((Math.random() * 100) + 1);  //get randomised inputs
-    var y = Math.floor((Math.random() * 100) + 1);
+    var inputs = q.query;
+    var x = Number(inputs.x);
+    var y = Number(inputs.y);
+    console.log(y);
+    if (isNaN(x) || isNaN(y)) {
+      res.writeHead(400);
+      res.end("Invalid inputs. Please input whole integers into the query url.")
+    }
+    if (filepath == "/") {
+      res.writeHead(404);
+      res.end("Invalid filepath.")
+    }
 
 	  var cpu_before = process.cpuUsage();
     var time_before = process.uptime();
