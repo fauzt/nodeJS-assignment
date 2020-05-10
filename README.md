@@ -5,15 +5,16 @@ A sample nodeJS project that uses a C++ addon which inteprets and runs an embedd
 
 # Prerequisites
 
+- C++ compiler
 - Python 3.x
 - nodeJS
 - npm
 
-- [Cmake](https://cmake.org/download/)
+- [CMake](https://cmake.org/download/)
 
 ## Installation
 
-Cmake is needed to build the addon. After installation of Cmake, the environment variable for Cmake should be set
+CMake is needed to build the addon. After installation of CMake, the environment variable for CMake should be set
 
 `PATH = installedfolder\CMake\bin`
 
