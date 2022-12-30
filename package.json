@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "loadtest": "^5.0.3",
-    "mocha": "^7.1.2",
+    "mocha": "^10.2.0",
     "cmake-js": "^6.1.0"
   }
 }
